@@ -8,7 +8,8 @@ const initialFormData = {
   priority: "low",
 };
 
-const AddTaskForm = () => {
+const AddTaskForm = (props) => {
+  const { fetchTasks } = props;
   const [formData, setFormData] = useState(initialFormData);
   const { name, time, difficulty, priority } = formData;
 
@@ -28,6 +29,9 @@ const AddTaskForm = () => {
 
     const result = await createTask(formData);
     console.log(result);
+    if (result.status === "success") {
+      fetchTasks();
+    }
   };
 
   return (
@@ -69,24 +73,28 @@ const AddTaskForm = () => {
         {/*Difficulty */}
         <Col>
           <Form.Label>Difficulty</Form.Label>
-          <Form.Select name="difficulty">
+          <Form.Select
+            name="difficulty"
+            value={difficulty}
+            onChange={handleOnchange}
+          >
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
-            value = {difficulty}
-            onChange={handleOnchange}
           </Form.Select>
         </Col>
 
         {/*Priority */}
         <Col>
           <Form.Label>Priority</Form.Label>
-          <Form.Select name="priority">
+          <Form.Select
+            name="priority"
+            value={priority}
+            onChange={handleOnchange}
+          >
             <option value="low">Low</option>
             <option value="medium">Medium</option>
             <option value="high">High</option>
-            value = {priority}
-            onChange={handleOnchange}
           </Form.Select>
         </Col>
       </Row>

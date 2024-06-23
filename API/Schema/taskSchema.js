@@ -11,11 +11,13 @@ const TaskSchema = new mongoose.Schema({
   },
   difficulty: {
     type: String,
-    default: "easy",
   },
   priority: {
     type: String,
-    default: "low",
+  },
+  type: {
+    type: String,
+    default: "entry",
   },
 });
 
