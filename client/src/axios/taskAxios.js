@@ -1,6 +1,6 @@
 import axios from "axios";
 const API_URL = import.meta.env.PROD
-  ? "https://ntdl-full-stack-3j53.onrender.com/"
+  ? "https://ntdl-full-stack-3j53.onrender.com/api/tasks"
   : "http://localhost:8000/api/tasks";
 
 //Get a task | GET | READ
