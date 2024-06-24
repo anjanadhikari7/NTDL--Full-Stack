@@ -41,6 +41,7 @@ const AddTaskForm = (props) => {
       setIsAdded(true);
       const timer = setTimeout(() => {
         setIsAdded(false);
+        setResultStatus(null);
       }, 10000); // 10000 milliseconds = 10 seconds
 
       return () => clearTimeout(timer);
